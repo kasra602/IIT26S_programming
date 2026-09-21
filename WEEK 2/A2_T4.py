@@ -1,0 +1,15 @@
+print("Program starting. \nEstimate how many minutes you spent on programming...")
+T1 = int(input("A1_T1: "))
+T2 = int(input("A1_T2: ")) 
+T3 = int(input("A1_T3: "))
+T4 = int(input("A1_T4: "))
+T5 = int(input("A1_T5: "))
+T6 = int(input("A1_T6: "))
+T7 = int(input("A1_T7: "))
+T_sum = T1 + T2 + T3 + T4 + T5 + T6 + T7
+T_average = T_sum / 7
+T_average = round(T_average, 2)
+T_rounded = round(T_average)
+print("In total you spent", T_sum, "minutes on programming.")
+print("Average per task was", T_average, "mins and same rounded to the nearest integer", T_rounded, "mins.")
+print("Program ending.")
