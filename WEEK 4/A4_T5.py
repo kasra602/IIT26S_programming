@@ -9,17 +9,18 @@ if inspectionpoint < startingpoint or inspectionpoint > stoppingpoint:
         print("\nProgram ending.")
     else:
        print("\nInspection value must be within the range of start and stop.")
-       print("\nProgram ending.")
-     
+       print("\nProgram ending.")  
 else:
     print("\nFirst loop - insepction with break:")
     for i in range(startingpoint, stoppingpoint+1):
         if i == inspectionpoint:
             break
-        print(i, end=" ")
     print("\nSecond loop - insepction with continue:")
     for i in range(startingpoint, stoppingpoint):
         if i == inspectionpoint:
             continue
-        print(i, end=" ")
+        if i < stoppingpoint:
+            print(i, end="-")
+        else:
+            print(i, end="")
     print("\n\nProgram ending.")

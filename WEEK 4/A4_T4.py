@@ -7,5 +7,5 @@ while True:
         break
     wordcount += 1
     howmanycharacters += len(word)
-print("\nYou inserted:\n", wordcount, "words\n", howmanycharacters, "characters")
+print("\nYou inserted:\n", wordcount, "- words\n", howmanycharacters, "- characters")
 print("\nProgram ending.")
