@@ -23,3 +23,8 @@ W4_7: https://github.com/kasra602/Python_programming_W4_7
 W5_6: https://github.com/kasra602/Python_programming_W5_6
 
 W5_7: https://github.com/kasra602/Python_programming_W5_7
+
+
+W6_5: https://github.com/kasra602/Python_programming_W6_5
+
+W6_6: https://github.com/kasra602/Python_programming_W6_6
