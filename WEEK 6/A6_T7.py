@@ -1,3 +1,5 @@
+PROGRESS_FILE = "player_progress.txt"
+HEADER = "current_location;next_location;passphrase"
 SEPARATOR = ";"
 LOWER_ALPHABETS = "abcdefghijklmnopqrstuvwxyz"
 UPPER_ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
