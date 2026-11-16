@@ -1,12 +1,8 @@
-PROGRESS_FILE = "player_progress.txt"
-HEADER = "current_location;next_location;passphrase"
 SEPARATOR = ";"
-
 LOWER_ALPHABETS = "abcdefghijklmnopqrstuvwxyz"
 UPPER_ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-
-def rot13(text: str) -> str:
+def rot13(text: str):
     result: str = ""
     for char in text:
         if char in LOWER_ALPHABETS:
@@ -20,7 +16,7 @@ def rot13(text: str) -> str:
     return result
 
 
-def get_location_name(location_id: int) -> str:
+def get_location_name(location_id: int):
     if location_id == 0:
         return "home"
     elif location_id == 1:
@@ -33,8 +29,7 @@ def get_location_name(location_id: int) -> str:
         return "Vespasian's palace"
 
 
-def init_progress_file() -> None:
-    """Creates the progress file if it does not exist yet."""
+def init_progress_file():
     try:
         file = open(PROGRESS_FILE, "r", encoding="utf-8")
         file.close()
@@ -45,7 +40,7 @@ def init_progress_file() -> None:
         file.close()
 
 
-def read_last_progress() -> str:
+def read_last_progress():
     """Returns the last data row of the progress file."""
     file = open(PROGRESS_FILE, "r", encoding="utf-8")
     last_row: str = ""
@@ -72,27 +67,26 @@ def read_message(filename: str) -> str:
     return message
 
 
-def find_message(next_id: int, cipher_pass: str, plain_pass: str) -> str:
-    """Message file name uses the ciphered passphrase (plain as fallback)."""
+def find_message(next_id: int, cipher_pass: str, plain_pass: str):
     try:
         return read_message("{0:d}_{1:s}.gkg".format(next_id, cipher_pass))
     except FileNotFoundError:
         return read_message("{0:d}_{1:s}.gkg".format(next_id, plain_pass))
 
 
-def append_progress(row: str) -> None:
+def append_progress(row: str):
     file = open(PROGRESS_FILE, "a", encoding="utf-8")
     file.write(row + "\n")
     file.close()
 
 
-def save_plain_message(next_id: int, plain_pass: str, plain_message: str) -> None:
+def save_plain_message(next_id: int, plain_pass: str, plain_message: str):
     file = open("{0:d}-{1:s}.txt".format(next_id, plain_pass), "w", encoding="utf-8")
     file.write(plain_message)
     file.close()
 
 
-def main() -> None:
+def main():
     init_progress_file()
     parts = read_last_progress().split(SEPARATOR)
     current_id = int(parts[0])
@@ -117,7 +111,6 @@ def main() -> None:
     ciphered_message = find_message(next_id, cipher_pass, plain_pass)
     print("Ah, there it is! Seems cryptic.")
 
-    # First line of the ciphered message -> progress file
     first_line = ciphered_message.split("\n")[0]
     append_progress("{0:d};{1:d};{2:s}".format(next_id, next_id + 1, first_line))
     print("[Game] Progress autosaved!")
